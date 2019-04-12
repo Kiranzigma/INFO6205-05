@@ -17,14 +17,8 @@ PROBLEM STATEMENT:
  In the following table, points obtained by typing the word Computer may be higher;but within 10sec(which is considered to be the weight) if you type the word Mode you can score higher than typing the word Computer within 10Sec(which could be typed only 2 times). This generally finds the individual who has the ability to aim for highest cumulative points.
 
 
------------------------------------------------------------------------------------------------------------------------
-Words                                               ||              Points              ||                 Time To Type
---------------------------------------------------  || ---------------------------------|| -------------------------------
-Computer                                            || 09                               ||                  04Sec
---------------------------------------------------  || -------------------------------- || -------------------------------
-Laptop                                              || 06                               ||                  03Sec
---------------------------------------------------  || -------------------------------- || -------------------------------
-Mode                                                || 04                               ||                  02Sec
---------------------------------------------------  || -------------------------------- || -------------------------------
-Sick                                                || 04                               ||                  01Sec
---------------------------------------------------  || -------------------------------- || -------------------------------
+Words                                               ||              Points              ||                 Time To Type          
+Computer                                            || 09                               ||                  04Sec                
+Laptop                                              || 06                               ||                  03Sec                 
+Mode                                                || 04                               ||                  02Sec                 
+Sick                                                || 04                               ||                  01Sec                  
