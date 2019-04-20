@@ -49,6 +49,7 @@ public String generateRandomString(int length) {
 		population=new String[populationSize];
 		for(int i=0;i<populationSize;i++) {
 			population[i]=generateRandomString(totalnumberofwords);
+			//System.out.println(population[i]);
 		}
 	}
 
@@ -79,7 +80,7 @@ public String generateRandomString(int length) {
 		//System.out.println("points of String:"+totalValue);
 		return totalValue;
 	}
-	private Double sumTime(String codeString) {
+	Double sumTime(String codeString) {
 		// TODO Auto-generated method stub
 		double totalTime=0;
 		for(int i=0;i<codeString.length();i++) {
@@ -94,6 +95,7 @@ public String generateRandomString(int length) {
 	public void doCrossover(int index1, int index2) {
 		// TODO Auto-generated method stub
 		String newString1="",newString2="";
+		//System.out.println("index1"+index1+"index2"+index2);
 		for(int i=0;i<totalnumberofwords;i++) {
 			double randomNumber1=Math.random();
 			if(randomNumber1<probCrossOver) {
@@ -105,7 +107,10 @@ public String generateRandomString(int length) {
 				newString2+=((String)population[index2]).charAt(i);
 				//System.out.println("less probability of crossover"+probCrossOver);
 			}}population[index1]=newString1;
+			//System.out.println("New String1"+newString1);
 			population[index2]=newString2;
+			//System.out.println("New String2"+newString2);
+
 	//	System.out.println("population at index1:"+population[index1]);
 //		System.out.println("population at index 2:"+population[index2]);
 		
@@ -125,7 +130,7 @@ public String generateRandomString(int length) {
 		}population[index]=newString;
 	//	System.out.println("REsult of mutation:"+population[index]);
 	}
-	private char flip(char gene) {
+	char flip(char gene) {
 		// TODO Auto-generated method stub
 		if(gene=='0') {
 			return '1';

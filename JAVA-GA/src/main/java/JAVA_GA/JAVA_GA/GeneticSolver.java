@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
+import java.util.stream.IntStream;
 
 public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 	public int populationSize;
@@ -30,6 +31,8 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 		// TODO Auto-generated method stub
 		this.name=name;
 		Logger logger=Logger.getLogger("Genetic Logger");
+	      long startTime = System.currentTimeMillis();
+
 		initializePopulation();
 		for(int i=0;i<numofGeneration;i++) {
 			currentGeneration=i;
@@ -37,7 +40,8 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 			Integer[] arr=new Integer[populationSize];
 			for(int j=0;j<arr.length;j++) {
 				arr[j]=j;
-			}Collections.shuffle(Arrays.asList(arr));
+			}
+			Collections.shuffle(Arrays.asList(arr));
 			for(int k=0;k<populationSize;k+=2) {
 				doCrossover(arr[k],arr[k+1]);
 			}
@@ -47,10 +51,13 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 			
 			
 		}
-//		 System.out.println("Name:" + name + " Prob of Mutation: " + probMutation);
-//	     System.out.println("Generation: " + currentGeneration );
-//	     System.out.println("Best fitness: " + bestfitness);
-//	     System.out.println("Best pattern: " + bestpattern + "\n");
+		 System.out.println("Name:" + name + " Prob of Mutation: " + probMutation);
+	     System.out.println("Generation: " + currentGeneration );
+	     System.out.println("Best fitness: " + bestfitness);
+	     System.out.println("Best pattern: " + bestpattern + "\n");
+		 long stopTime = System.currentTimeMillis();
+	      long elapsedTime = stopTime - startTime;
+	      System.out.println("ellapsed Time without paralell processing:"+elapsedTime);
 	}
 
 	public abstract void initializePopulation(); 
@@ -59,9 +66,12 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 		// TODO Auto-generated method stub
 		patterns.clear();
 		probabilityMap.clear();
-		for(int i=0;i<populationSize;i++) {
+
+			for(int i=0;i<populationSize;i++) {
 			patterns.add(population[i]);
 		}
+//		IntStream.range(0, population.length).parallel()
+//        .forEach(i -> patterns.add(population[i]));
 		double sumFitness=0;
 		for(Object pattern:patterns) {
 			double patternFitness=calculateFitness(pattern);
@@ -80,7 +90,7 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 	//     System.out.println("Generation: " + currentGeneration );
 	//     System.out.println("Best fitness: " + bestfitness);
 	    // System.out.println("Best pattern: " + bestpattern + "\n");
-		
+
 	}
 	public void doSelection() {
 		// TODO Auto-generated method stub
@@ -99,6 +109,8 @@ probabilitySum[0]=valueLinks.get(0);
 			for(int j=0;j<numValues;j++) {
 				if(randomNumbers<probabilitySum[j]) {
 					population[i]=keylinks.get(j);
+					//System.out.println("keylinks"+keylinks);
+				//	System.out.println("valuelinks"+valueLinks);
 					break;
 				}
 			}
@@ -107,11 +119,12 @@ probabilitySum[0]=valueLinks.get(0);
 	LinkedHashMap<Object, Double> doSort(Map<Object, Double> passedMap) {
 		// TODO Auto-generated method stub
 		 List<Object> keyMaps = new ArrayList<>(passedMap.keySet());
+		 //System.out.println("passedmap"+passedMap.keySet());
 	        List<Double>ValueMaps = new ArrayList<>(passedMap.values());
 	        Collections.sort(ValueMaps);
 	        LinkedHashMap<Object,Double>linkedhashmap=new LinkedHashMap<>();
 	        Iterator<Double> valueIterator=ValueMaps.iterator();
-	        while(valueIterator.hasNext()) {
+	      	        while(valueIterator.hasNext()) {
 	        	Double value=valueIterator.next();
 	        	Iterator<Object>keyIterator=keyMaps.iterator();
 	        	while(keyIterator.hasNext()) {

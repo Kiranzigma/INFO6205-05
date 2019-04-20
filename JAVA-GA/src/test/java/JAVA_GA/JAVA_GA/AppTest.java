@@ -19,9 +19,9 @@ public class AppTest
     public void testCalculateFitnessFunction(){
 
         int[] time  = {3,1,3,2,3,1,5,3,3,1,3,3,5,3,5,3,1,3,2,2};
-        int[] mark = {2,5,2,5,2,2,5,7,2,10,10,2,5,2,5,7,2,10,2,2};
+        int[] points = {2,5,2,5,2,2,5,7,2,10,10,2,5,2,5,7,2,10,2,2};
 
-        GeneticKnapsack gK = new GeneticKnapsack(25, time,mark);
+        GeneticKnapsack gK = new GeneticKnapsack(25, time,points);
         assertTrue(gK.calculateFitness("11111111110000000000")==42.0);
         assertTrue(gK.calculateFitness("10000000000000000000")==2.0);
         assertTrue(gK.calculateFitness("01010010000000000000")==15.0);
@@ -62,9 +62,9 @@ public class AppTest
     public void testSumValue(){
 
         int[] time  = {3,1,3,2,3,1,5,3,3,1,3,3,5,3,5,3,1,3,2,2};
-        int[] mark = {2,5,2,5,2,2,5,7,2,10,10,2,5,2,5,7,2,10,2,2};
+        int[] points = {2,5,2,5,2,2,5,7,2,10,10,2,5,2,5,7,2,10,2,2};
 
-        GeneticKnapsack gK = new GeneticKnapsack(25, time,mark);
+        GeneticKnapsack gK = new GeneticKnapsack(25, time,points);
         assertTrue(gK.sumValue("10011001100111100011")==36.0);
         assertTrue(gK.sumValue("10011110101011110100")==57.0);
         assertTrue(gK.sumValue("00010011001100000011")==33.0);
@@ -74,8 +74,36 @@ public class AppTest
         assertTrue(gK.sumValue("10000000000000000000")==2.0);
         assertTrue(gK.sumValue("01010010000000000000")==15.0);
     }
-
-    public void testGenerateRandomString(){
+ //this is a general test case for crossover function and it is supposed to fail as the returntype of docrossoverfunction is void and not boolean
+//public void testcrossoverfunction()
+//{
+//	 int[]time= {1,2};int[] points= {3,4};
+//	GeneticKnapsack knapsacktest=new GeneticKnapsack(75,2,time,points,0.6,0.7,4,3);
+//	int maxValue=75;
+//    String [] population = new String[maxValue];
+//    for (int i = 0; i < maxValue; i++) {
+//        knapsacktest.doCrossover(100,101);
+//    }
+//   System.out.println(population.length);
+//    assertTrue(knapsacktest!=null);
+//
+//	}   
+    public void testflip() {
+    	  GeneticKnapsack gK = new GeneticKnapsack();
+          assertTrue(gK.flip('1')=='0');
+//this method forms the basis for mutation in the implementation
+    }
+    //this testcase test the result of mutated value at the index 10 but it is supposed to fail as the return type of doMutation is void
+//    public void testMutation() {
+//    	 GeneticKnapsack gK = new GeneticKnapsack();
+//    	 int maxValue=75;String [] population = new String[maxValue];
+//    	 gK.doMutation(10);
+//    	 for(int i=0;i<maxValue;i++) {
+//    	 System.out.println(population[10]);
+//    	 }
+//    	 assertTrue(gK!=null);
+//    }
+public void testGenerateRandomString(){
         GeneticKnapsack gK = new GeneticKnapsack();
         int populationSize = 1000;
         String [] population = new String[populationSize];
