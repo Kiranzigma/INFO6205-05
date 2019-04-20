@@ -25,16 +25,24 @@ public class App
 private static void solveKnapsack() {
 	// TODO Auto-generated method stub
 	readKnapsackInput("knapsack.txt");
-	
 	randomSolver(maxTime,totalnumberofwords,time,points,"Ran.Bot-1");
+//	for(int i=0;i<totalnumberofwords;i++) {
+//		System.out.println("time at random solver---->"+time[i]+"points at randomsolver--->"+points[i]);
+//	}
 	randomSolver(maxTime,totalnumberofwords,time,points,"Ran.Bot-2");
 	randomSolver(maxTime,totalnumberofwords,time,points,"Ran.Bot-3");
 	randomSolver(maxTime,totalnumberofwords,time,points,"Ran.Bot-4");
 	randomSolver(maxTime,totalnumberofwords,time,points,"Ran.Bot-5");
-GeneticKnapsack solver1=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.00001,1000,1000);
+
+	GeneticKnapsack solver1=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.00001,1000,1000);
 	solver1.solve("GA.Bot-1");
+//for(int i=0;i<totalnumberofwords;i++) {
+//	System.out.println("time---->"+time[i]+"points--->"+points[i]);
+//}
+//	
+	
 	GeneticKnapsack solver2=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.000000025,1000,1000);
-	solver1.solve("GA.Bot-2");	
+	solver2.solve("GA.Bot-2");	
 	GeneticKnapsack solver3=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.0030,1000,1000);
 	solver3.solve("GA.Bot-3");
 	GeneticKnapsack solver4=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.09,1000,1000);
@@ -49,14 +57,15 @@ private static void randomSolver(double maxTime,int totalnumberofwords,int [] ti
 	for(int k=0;k<arr.length;k++) {
 		arr[k]=k;
 	}
-	Collections.shuffle(Arrays.asList());
+	Collections.shuffle(Arrays.asList(arr));
 	for(int i=0;i<totalnumberofwords;i++) {
 		if(maxTime>totalTime+time[arr[i]]) {
 			totalTime+=time[arr[i]];
 			totalPoints+=points[arr[i]];
-			System.out.println(name+"Time:"+totalTime+"Points:"+totalPoints+"\n");
+		
 		}
 	}
+	System.out.println(name+"Time:"+totalTime+"Points:"+totalPoints+"\n");
 	
 }
 private static void readKnapsackInput(String filepath) {
@@ -76,9 +85,9 @@ private static void readKnapsackInput(String filepath) {
 			time[i]=Integer.parseInt(stringarray[1]);
 			//points[i]=Integer.parseInt(stringarray[0]);
 			points[i]=stringarray[0].length();
-			System.out.println("time-->"+time[i]);
+			//System.out.println("time-->"+time[i]);
 
-			System.out.println("points-->"+points[i]);
+		//	System.out.println("points-->"+points[i]);
 			
 		}reader.close();
 		}catch(Exception e) {
