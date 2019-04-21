@@ -20,7 +20,7 @@ public class App
     public static void main( String[] args )
     {
     	solveKnapsack();
-        System.out.println( "Hello World!" );
+        //System.out.println( "Hello World!" );
     }
 private static void solveKnapsack() {
 	// TODO Auto-generated method stub
@@ -36,10 +36,6 @@ private static void solveKnapsack() {
 
 	GeneticKnapsack solver1=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.00001,1000,1000);
 	solver1.solve("GA.Bot-1");
-//for(int i=0;i<totalnumberofwords;i++) {
-//	System.out.println("time---->"+time[i]+"points--->"+points[i]);
-//}
-//	
 	
 	GeneticKnapsack solver2=new GeneticKnapsack(maxTime,totalnumberofwords,time,points,0.5,0.000000025,1000,1000);
 	solver2.solve("GA.Bot-2");	

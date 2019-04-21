@@ -57,7 +57,7 @@ public abstract class GeneticSolver implements GeneticAlgorithmInterface{
 	     System.out.println("Best pattern: " + bestpattern + "\n");
 		 long stopTime = System.currentTimeMillis();
 	      long elapsedTime = stopTime - startTime;
-	      System.out.println("ellapsed Time without paralell processing:"+elapsedTime);
+//	      System.out.println("Elapsed Time without paralell processing:" +elapsedTime);
 	}
 
 	public abstract void initializePopulation(); 
