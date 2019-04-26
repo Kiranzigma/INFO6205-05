@@ -14,7 +14,7 @@ Genetic algorithms are generally stochastic and are used to solve the maximizati
 
  The number of words typed that yields the highest number of points within the given time will be the added to the knapsack without exceeding the weight(capacity of knapsack-time in the defined use case).
 
- In the following table, points obtained by typing the words.Computer may be higher;but within 10sec(which is considered to be the weight) if you type the word Mode you can score higher than typing the word Computer within 10Sec(which could be typed only 2 times). This generally finds the individual who has the ability to aim for highest cumulative points.
+ In the following table, points obtained by typing the words such as Computer may be higher;but within 10sec(which is considered to be the weight) if you type the word Mode you can score higher than typing the word Computer within 10Sec. Mode can be typed twice within 10 seconds. This generally finds the individual who has the ability to aim for highest cumulative points.
 
 Example:
 
