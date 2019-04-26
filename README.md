@@ -20,4 +20,4 @@ Example:
 
 Words = {Computer,Laptop,Mode,Sick}                                  
 Point = {8,6,4,4} Points are length of the words  
-Time  = {Depends and is quite random }
+Time  = {Depends and is quite random}
