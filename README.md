@@ -16,7 +16,7 @@ Genetic algorithms are generally stochastic and are used to solve the maximizati
 
  In the following table, points obtained by typing the words.Computer may be higher;but within 10sec(which is considered to be the weight) if you type the word Mode you can score higher than typing the word Computer within 10Sec(which could be typed only 2 times). This generally finds the individual who has the ability to aim for highest cumulative points.
 
-Ecample:
+Example:
 
 Words = {Computer,Laptop,Mode,Sick}                                  
 Point = {8,6,4,4} Points are length of the words  
